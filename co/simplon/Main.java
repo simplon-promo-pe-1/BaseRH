@@ -9,10 +9,9 @@ import oracle.jdbc.OracleDriver;
 
 public class Main {
 
-    static String databaseUrl = "jdbc:oracle:thin:USERNAME/PASSWORD@HOSTNAME:PORT:SID";
+    static String databaseUrl = "jdbc:oracle:thin:SIMPLON/SIMPLON@LOCALHOST:1521:XE";
 
-    static String requeteSql = "SELECT * FROM EMP";
-
+    static String requeteSql = "SELECT job, avg(sal) AS salaire_moyen FROM emp GROUP BY job";
     public static void main(String[] args) throws Exception {
         DriverManager.registerDriver(new OracleDriver());
 
@@ -20,8 +19,8 @@ public class Main {
         Statement requete = connexion.createStatement();
         ResultSet resultat = requete.executeQuery(requeteSql);
         while (resultat.next()) {
-            String nom = resultat.getString("ENAME");
-            System.out.println(nom);
+            String chain = resultat.getString("job");
+            System.out.println(chain);
         }
         resultat.close();
         requete.close();
