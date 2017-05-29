@@ -9,7 +9,7 @@ import oracle.jdbc.OracleDriver;
 
 public class Main {
 
-    static String databaseUrl = "jdbc:oracle:thin:USERNAME/PASSWORD@HOSTNAME:PORT:SID";
+    static String databaseUrl = "jdbc:oracle:thin:simplon/simplon@localhost:1521:XE";
 
     static String requeteSql = "SELECT * FROM EMP";
 
